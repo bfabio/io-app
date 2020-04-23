@@ -1,0 +1,28 @@
+version: '3'
+services:
+  sdk:
+    image: "io-app:${TAG:-latest}"
+    user: "${SDK_UID?SDK_UID needed, run\n$ SDK_UID=$(id -u) docker-compose up}"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/build
+      - gems:/var/lib/gems
+    command: /bin/bash
+    # depends_on:
+    # restart: unless-stopped
+
+  # emulator:
+  #   image: "io-app:${TAG:-latest}"
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     # depends_on:
+  #     # restart: unless-stopped
+  #   command: /usr/local/bin/bundle exec puma -p 9090 cable/config.ru
+  #   # ports:
+  #   #  - '80:80'
+
+volumes:
+  gems:
