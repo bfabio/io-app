@@ -13,9 +13,6 @@ bundle install --clean --retry 9999 --path vendor
 yarn install
 yarn generate:all
 
-if [ ! -f android/app/google-services.json ]; then
-    cp mock-google-services.json android/app/google-services.json
-fi
 if [ ! -f .env ]; then
     cp .env.example .env
 fi
