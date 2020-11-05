@@ -3,7 +3,7 @@
 # More info at https://github.com/italia/publiccode.yml
 
 publiccodeYmlVersion: '0.2'
-name: IO
+ame: IO
 releaseDate: '2019-05-02'
 url: 'https://github.com/pagopa/io-app'
 applicationSuite: IO

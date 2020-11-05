@@ -74,6 +74,8 @@ install_node_modules: &install_node_modules
       echo "//npm.pkg.github.com/:_authToken=$GITHUB_PACKAGE_APP_TOKEN" > ~/.npmrc
       yarn install --frozen-lockfile --no-progress --non-interactive --network-concurrency 1
 
+orbs:
+  publiccode-parser: bfabio/publiccode-parser@0.0.1
 #
 # Build pipeline
 #
@@ -467,6 +469,8 @@ workflows:
       - run-tests
 
       - eslint
+
+      - publiccode-parser/validate
 
       - run-danger:
           filters:
